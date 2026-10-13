@@ -1,0 +1,19 @@
+services:
+  qbittorrent:
+    image: lscr.io/linuxserver/qbittorrent:latest
+    container_name: qbittorrent
+    environment:
+      - PUID=1000
+      - PGID=1000
+      - TZ=Europe/Moscow
+      - WEBUI_PORT=8080
+    volumes:
+      - ./config:/config
+      - /home/aloncie-server/media:/media
+    ports:
+      - 192.168.3.13:8080:8080
+      - ${TORRENT_INPUT_PORT}:${TORRENT_INPUT_PORT}
+      - ${TORRENT_INPUT_PORT}:${TORRENT_INPUT_PORT}/udp
+    stop_grace_period: "10s"
+    restart: unless-stopped
+

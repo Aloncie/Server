@@ -1,0 +1,24 @@
+# Игнорируем файлы конфигурации с паролями
+**/config.json
+**/config.yaml
+**/*.env
+**/*.conf
+net/adguard-conf/
+net/adguard-work/
+net/unbound-conf/
+jellyfin/config/
+qbittorrent/config
+
+arr-stack/*
+
+# Игнорируем базы данных и папки с постоянными данными (data/db)
+**/data/
+**/db/
+**/*.db
+**/*.sqlite
+
+# Игнорируем логи
+**/*.log
+.env
+.env*
+!.env.example

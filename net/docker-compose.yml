@@ -1,0 +1,12 @@
+services:
+  adguardhome:  # Define the service named 'adguardhome'
+    image: adguard/adguardhome  # Use the 'adguard/adguardhome' Docker image
+    container_name: adguardhome  # Set the container name to 'adguardhome'
+    restart: unless-stopped  # Restart the container automatically unless stopped manually
+    network_mode: "host"    
+    volumes:
+      - ./adguard-work:/opt/adguardhome/work
+      - ./adguard-conf:/opt/adguardhome/conf
+    environment:
+      - TZ=Europe/Moscow
+
